@@ -1,0 +1,46 @@
+# Git
+.git
+.gitignore
+
+# Python cache
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Virtual environments
+.venv
+venv
+env
+
+# uv cache
+.uv
+
+# Development tools cache
+.ruff_cache
+.mypy_cache
+.pytest_cache
+
+# Testing
+.coverage
+htmlcov
+
+# Development files
+ignore
+README.md
+docker-compose.yaml
+
+# OS files  
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode
+.idea
+
+# Logs
+*.log
+
+# Environment files
+.env

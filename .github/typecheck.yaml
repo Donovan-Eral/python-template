@@ -1,0 +1,14 @@
+name: Type Check
+on: [push, pull_request]
+
+jobs:
+  typecheck:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Install uv
+      uses: astral-sh/setup-uv@v4
+    - name: Install dependencies
+      run: uv sync --dev
+    - name: Run type checking
+      run: uvx ty check .

@@ -218,19 +218,6 @@ DEBUG=true
 
 4. **Update this README** with your project-specific information
 
-### Project Structure Options
-
-Consider organizing larger projects:
-
-```
-src/
-└── your_package/
-    ├── __init__.py
-    ├── main.py
-    ├── models/
-    ├── api/
-    └── utils/
-```
 
 ## 🏆 Why This Stack?
 

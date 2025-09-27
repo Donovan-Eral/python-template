@@ -1,5 +1,13 @@
 # Modern Python Template
 
+![Python](https://img.shields.io/badge/python-3.12+-blue.svg)
+![uv](https://img.shields.io/badge/uv-package%20manager-4051B5)
+![Ruff](https://img.shields.io/badge/code%20style-ruff-000000.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
+![Tests](https://github.com/yourusername/python-template/workflows/Test/badge.svg)
+![Lint](https://github.com/yourusername/python-template/workflows/Lint/badge.svg)
+![Type Check](https://github.com/yourusername/python-template/workflows/Type%20Check/badge.svg)
+
 A fast, modern Python project template using the latest Rust-based tooling for maximum developer productivity.
 
 ## ✨ Features
@@ -46,9 +54,9 @@ Install [just](https://github.com/casey/just) for task automation:
 # Development
 just install          # Install dependencies
 just run              # Run the application
+just test             # Run tests with pytest
 just format           # Format code with ruff
-just lint             # Lint code with ruff
-just fix              # Auto-fix linting issues
+just lint             # Lint code with ruff (use --fix to auto-fix)
 just typecheck        # Type check with ty
 just check            # Run lint + typecheck
 just clean            # Clean cache files
@@ -56,9 +64,10 @@ just clean            # Clean cache files
 # Docker
 just build-docker     # Build Docker image
 just run-docker       # Run with docker-compose (live reload)
+just stop-docker      # Stop docker services
 
 # Help
-just --list           # Show all available commands
+just help             # Show all available commands
 ```
 
 ## 🛠️ Development Setup
@@ -80,6 +89,7 @@ just install
 
 # Start developing
 just run              # Run locally
+just test             # Run tests
 just format           # Format before committing
 just check            # Lint and type check
 ```
@@ -105,13 +115,42 @@ just run-docker       # Start with live reload
 # No need to rebuild for code changes
 ```
 
+## 🧪 Testing
+
+This template includes pytest for testing:
+
+```bash
+# Run tests
+just test
+
+# Run tests with verbose output
+just test-verbose
+
+# Run tests with coverage
+just test-cov
+```
+
+Add your tests in `test_*.py` files:
+
+```python
+# test_main.py
+def test_basic():
+    """Verify pytest is working."""
+    assert True
+
+def test_your_function():
+    """Test your actual code."""
+    from main import your_function
+    assert your_function() == expected_result
+```
+
 ## 🔄 CI/CD
 
 This template includes GitHub Actions workflows:
 
-- **Lint** (`lint.yml`) - Fast code style checking
-- **Type Check** (`typecheck.yml`) - Type safety validation  
-- **Test** (`test.yml`) - Run your test suite
+- **Lint** (`lint.yaml`) - Fast code style checking
+- **Type Check** (`typecheck.yaml`) - Type safety validation  
+- **Test** (`test.yaml`) - Run your test suite
 
 All workflows run on push/PR and provide fast feedback.
 
@@ -218,6 +257,19 @@ DEBUG=true
 
 4. **Update this README** with your project-specific information
 
+### Project Structure Options
+
+Consider organizing larger projects:
+
+```
+src/
+└── your_package/
+    ├── __init__.py
+    ├── main.py
+    ├── models/
+    ├── api/
+    └── utils/
+```
 
 ## 🏆 Why This Stack?
 
@@ -244,4 +296,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Happy coding!** 🎉
 
-For questions or issues, please open an issue on GitHub.
+**Remember to:**
+- Replace `yourusername/python-template` in the badge URLs with your actual GitHub username/repo
+- The workflow badges will show green ✅ once your GitHub Actions are running

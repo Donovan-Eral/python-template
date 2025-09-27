@@ -3,24 +3,24 @@ install:
     uv sync
 
 # Run the application
-run:
-    uv run python main.py
+run *ARGS:
+    uv run python main.py {{ARGS}}
 
 # Format code
-format:
-    uv run ruff format .
+format *ARGS:
+    uv run ruff format {{ARGS}}
 
-# Lint code
-lint:
-    uv run ruff check .
-
-# Fix linting issues
-fix:
-    uv run ruff check --fix .
+# Lint code (use --fix to auto-fix)
+lint *ARGS:
+    uv run ruff check {{ARGS}}
 
 # Type check
-typecheck:
-    uvx ty check .
+typecheck *ARGS:
+    uvx ty check {{ARGS}}
+
+# Run tests
+test *ARGS:
+    uv run pytest {{ARGS}}
 
 # Run all checks
 check: lint typecheck
@@ -38,10 +38,6 @@ run-docker:
 
 stop-docker:
     docker compose down
-
-# Testing
-test:
-    uv run pytest
 
 # Show help
 help:

@@ -1,12 +1,9 @@
 # Modern Python Template
 
-![Python](https://img.shields.io/badge/python-3.12+-blue.svg)
-![uv](https://img.shields.io/badge/uv-package%20manager-4051B5)
-![Ruff](https://img.shields.io/badge/code%20style-ruff-000000.svg)
-![License](https://img.shields.io/badge/license-MIT-green.svg)
-![Tests](https://github.com/yourusername/python-template/workflows/Test/badge.svg)
-![Lint](https://github.com/yourusername/python-template/workflows/Lint/badge.svg)
-![Type Check](https://github.com/yourusername/python-template/workflows/Type%20Check/badge.svg)
+![Python](https://img.shields.io/badge/python-3.12%2B-blue)
+![uv](https://img.shields.io/badge/uv-package%20manager-DE5FE9)
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+![License](https://img.shields.io/badge/license-MIT-green)
 
 A fast, modern Python project template using the latest Rust-based tooling for maximum developer productivity.
 
@@ -148,9 +145,9 @@ def test_your_function():
 
 This template includes GitHub Actions workflows:
 
-- **Lint** (`lint.yaml`) - Fast code style checking
-- **Type Check** (`typecheck.yaml`) - Type safety validation  
-- **Test** (`test.yaml`) - Run your test suite
+- **Lint** (`lint.yml`) - Fast code style checking
+- **Type Check** (`typecheck.yml`) - Type safety validation  
+- **Test** (`test.yml`) - Run your test suite
 
 All workflows run on push/PR and provide fast feedback.
 
@@ -177,20 +174,17 @@ All workflows run on push/PR and provide fast feedback.
 
 ### Python Dependencies
 
-Add dependencies to `pyproject.toml`:
+Add dependencies using uv:
 
-```toml
-[project]
-dependencies = [
-    "requests",
-    "pydantic",
-]
+```bash
+# Add runtime dependencies
+uv add requests pydantic
 
-[dependency-groups]
-dev = [
-    "pytest",
-    "ruff",
-]
+# Add development dependencies  
+uv add --dev pytest-xdist black
+
+# Add optional dependencies
+uv add --optional web fastapi uvicorn
 ```
 
 Then run:

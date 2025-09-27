@@ -39,6 +39,10 @@ run-docker:
 stop-docker:
     docker compose down
 
+# Testing
+test:
+    uv run pytest
+
 # Show help
 help:
     just --list
